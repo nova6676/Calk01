@@ -1,0 +1,42 @@
+// Исправил недочеты, теперь калкулятор принимает только пример в одно действия, и так же число которое можно поставить в пример  может быть только от 0 до 10.
+import java.util.Scanner;
+
+public class calc {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите пример");
+        String primer = scanner.nextLine();
+        String[] delimstroky = primer.split(" ");
+        String operator, chislo1, chislo2 = " ";
+        int chislo3, chislo4;
+        chislo1 = delimstroky[0];
+        operator = delimstroky[1];
+        chislo2 = delimstroky[2];
+        chislo3 = Integer.parseInt(chislo1);
+        chislo4 = Integer.parseInt(chislo2);
+        if (10<chislo3 ||chislo3<0) {
+            System.out.println("Число должно быть от 0 до 10 включительно");
+        } else if (chislo4 < 0 || 10 <chislo4) {
+            System.out.println("Число должно быть от 0 до 10 включительно");
+        }
+        else if(primer.length()>=8) {
+            System.out.println("Формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
+        }else
+        switch (operator) {
+            case "+":
+                System.out.println(chislo3 + chislo4);
+                break;
+            case "-":
+                System.out.println(chislo3 - chislo4);
+                break;
+            case "/":
+                System.out.println(chislo3 / chislo4);
+                break;
+            case "*":
+                System.out.print(chislo3 * chislo4);
+        }
+
+    }
+    }
+
+
