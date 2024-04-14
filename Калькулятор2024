@@ -15,7 +15,7 @@ public class Main {
         String operator;
         String Result = "";
         int num2;
-        int num1 = 0;
+        int num1 ;
         String[] strings = primer.split(" ");
         int ResultatNum = 0;
         operator = strings[1];
@@ -29,26 +29,32 @@ public class Main {
                 System.out.println("Число должно быть меньше 10");
 
             }
-            switch (operator) {
-                case "+":
-                    ResultatNum = num1 + num2;
-                    System.out.print(ResultatNum);
-                    break;
-                case "-":
-                    ResultatNum = num1 - num2;
-                    System.out.println(ResultatNum);
-                    break;
-                case "/":
-                    ResultatNum = num1 / num2;
-                    System.out.println(ResultatNum);
-                case "*":
-                    ResultatNum = num1 * num2;
-                    System.out.println(ResultatNum);
-                    break;
-                default:
-                    System.out.println("Не подходящий знак действий ");
+            if (primer.length() > 8) {
+                System.out.println("Пример должен состоять из двух операндов");
+            } else {
+
+                switch (operator) {
+                    case "+":
+                        ResultatNum = num1 + num2;
+                        System.out.print(ResultatNum);
+                        break;
+                    case "-":
+                        ResultatNum = num1 - num2;
+                        System.out.println(ResultatNum);
+                        break;
+                    case "/":
+                        ResultatNum = num1 / num2;
+                        System.out.println(ResultatNum);
+                    case "*":
+                        ResultatNum = num1 * num2;
+                        System.out.println(ResultatNum);
+                        break;
+                    default:
+                        throw new Exception("не подходящий знак действий ");
+                }
             }
-        } catch (NumberFormatException e) {
+        }
+        catch (NumberFormatException e) {
             switch (vtoroe) {
                 case "I" -> num2 = 1;
                 case "II" -> num2 = 2;
@@ -91,25 +97,22 @@ public class Main {
                 case "*":
                     ResultatNum = num1 * num2;
                     System.out.println(ResultatNum);
-                    break;
-                default:
-                    System.out.println("Не подходящий знак действий ");
-
-
-                int[] num = {100,  50, 40, 10, 9, 5, 4, 1};
-                String[] figure = {"C", "L", "XL", "X", "IX", "V", "IV", "I"};
-                Result = "";
-                for (int i = 0; i < num.length; i++) {
-                    while (ResultatNum >= num[i]) {
-                        Result = Result + figure[i];
-                        ResultatNum = ResultatNum - num[i];
-                    }
-
-                }
-
+                default : throw new Exception("не подходящий знак действий ");
             }
 
-        }
+
+                    int[] num = {100,  50, 40, 10, 9, 5, 4, 1};
+                    String[] figure = {"C", "L", "XL", "X", "IX", "V", "IV", "I"};
+                    Result = "";
+                    for (int i = 0; i < num.length; i++) {
+                        while (ResultatNum >= num[i]) {
+                            Result = Result + figure[i];
+                            ResultatNum = ResultatNum - num[i];
+                        }
+
+                    }
+
+            }
         return Result;
     }
-}
+    }
