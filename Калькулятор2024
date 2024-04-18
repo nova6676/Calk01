@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws Exception {
         System.out.println("Введите пример");
-
         String primer = new Scanner(System.in).nextLine();
         String string = calc(primer);
         System.out.println(string);
@@ -16,9 +15,9 @@ public class Main {
         String operator;
         String Result = "";
         int num2;
-        int num1 ;
+        int num1;
         String[] strings = input.split(" ");
-        int ResultatNum ;
+        int ResultatNum;
         operator = strings[1];
         pervoe = strings[0];
         vtoroe = strings[2];
@@ -27,7 +26,7 @@ public class Main {
             num1 = Integer.parseInt(pervoe);
             num2 = Integer.parseInt(vtoroe);
             if (num1 < 1 || num1 > 10 || num2 < 1 || num2 > 10) {
-                System.out.println("Число должно быть меньше 10");
+                System.out.println("Число должно быть меньше 10 и больше 0");
 
             }
             if (input.length() > 8) {
@@ -78,7 +77,6 @@ public class Main {
                 case "X" -> num1 = 10;
                 default -> throw new Exception("смешанный числа");
             }
-
             switch (operator) {
                 case "+":
                     ResultatNum = num1 + num2;
@@ -92,11 +90,15 @@ public class Main {
                 case "*":
                     ResultatNum = num1 * num2;
                     break;
-                default : throw new Exception("не подходящий знак действий ");
+                default:
+                    throw new Exception("не подходящий знак действий ");
+            }
+            if (ResultatNum < 1) {
+                throw new Exception("Римские числа должны быть больше 0");
             }
 
 
-            int[] num = {100,  50, 40, 10, 9, 5, 4, 1};
+            int[] num = {100, 50, 40, 10, 9, 5, 4, 1};
             String[] figure = {"C", "L", "XL", "X", "IX", "V", "IV", "I"};
             Result = "";
             for (int i = 0; i < num.length; i++) {
